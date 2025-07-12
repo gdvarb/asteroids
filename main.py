@@ -1,3 +1,4 @@
+from player import * 
 import pygame
 from constants import *
 def main():
@@ -6,14 +7,21 @@ def main():
     loop = True
     clock = pygame.time.Clock()
     dt = 0
+    x_coordinate = SCREEN_WIDTH / 2
+    y_coordinate = SCREEN_HEIGHT / 2
+    player = Player(x_coordinate, y_coordinate)
+
     while loop:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
 
         screen.fill("black")
+        player.draw(screen)
         pygame.display.flip()    
         dt = clock.tick(60) / 1000
+
+
 
 if __name__ == "__main__":
         main()
