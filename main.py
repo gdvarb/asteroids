@@ -16,16 +16,13 @@ def main():
     # creates containers
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
+    asteroids = pygame.sprite.Group()
     # set containers that the object will automatically join
     Player.containers = (updatable, drawable)
-    # instantiation of the Player obj automatically adds it to the containers
-    player = Player(x_coordinate, y_coordinate)
-
-    
-    asteroids = pygame.sprite.Group()
     Asteroid.containers = (asteroids, updatable, drawable)
-
     AsteroidField.containers = (updatable)
+    # instantiation of the obj automatically adds it to the containers
+    player = Player(x_coordinate, y_coordinate)
     asteroidfield = AsteroidField()
 
     dt = 0
