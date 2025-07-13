@@ -1,6 +1,10 @@
+from asteroidfield import AsteroidField
+from asteroids import Asteroid
 from player import * 
 import pygame
+import random
 from constants import *
+
 def main():
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -16,6 +20,13 @@ def main():
     Player.containers = (updatable, drawable)
     # instantiation of the Player obj automatically adds it to the containers
     player = Player(x_coordinate, y_coordinate)
+
+    
+    asteroids = pygame.sprite.Group()
+    Asteroid.containers = (asteroids, updatable, drawable)
+
+    AsteroidField.containers = (updatable)
+    asteroidfield = AsteroidField()
 
     dt = 0
     while loop:
