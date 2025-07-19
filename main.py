@@ -24,7 +24,7 @@ def main():
     Player.containers = (updatable, drawable)
     Asteroid.containers = (asteroids, updatable, drawable)
     AsteroidField.containers = (updatable)
-    Shot.containers = (updatable, drawable)
+    Shot.containers = (shots, updatable, drawable)
     # instantiation of the obj automatically adds it to the containers
     player = Player(x_coordinate, y_coordinate)
     asteroidfield = AsteroidField()
@@ -44,6 +44,7 @@ def main():
         screen.fill("black")
         for obj in drawable:
             obj.draw(screen)
+            
 
         pygame.display.flip()    
 
